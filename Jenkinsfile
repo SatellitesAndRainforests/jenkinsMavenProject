@@ -1,7 +1,7 @@
 pipeline {
 //    agent any
 //    agent { docker { image"maven:3.8.2-amazoncorretto-8" } } 
-    enviroment {
+    environment {
         JAVA_TOOL_OPTIONS = "-Duser.home=/home/jenkins"   
     }
     agent {

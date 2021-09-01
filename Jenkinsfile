@@ -1,9 +1,12 @@
 pipeline {
 //    agent any
+//    agent { docker { image"maven:3.8.2-amazoncorretto-8" } } 
+    enviroment {
+        JAVA_TOOL_OPTIONS = "-Duser.home=/home/jenkins"   
+    }
     agent {
-        docker {
-            image "maven:3.8.2-amazoncorretto-8"
-            
+        dockerfile {
+            args "-v /tmp/maven:/home/jenkins/.m2 -e MAVEN_CONFIG=/home/jenkins/.m2"
         }
     }
     
@@ -15,7 +18,6 @@ pipeline {
 
         stage("Build") {
             steps {
-                sh "yum install openssh-clients"
                 sh "ssh -V"
                 sh "mvn -version"
                 sh "mvn clean install"

@@ -6,6 +6,7 @@ pipeline {
     }
     agent {
         dockerfile {
+            label "docker" /////////////////////////////// add label docker to master node <------------
             args "-v /tmp/maven:/home/jenkins/.m2 -e MAVEN_CONFIG=/home/jenkins/.m2"
         }
     }

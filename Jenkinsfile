@@ -1,8 +1,15 @@
 pipeline {
-    agent any
-    tools {
-        maven "3.6.3" 
+//    agent any
+    agent {
+        docker {
+            image "maven:3.8.2-amazoncorretto-8"  
+            label "docker"
+        }
     }
+    
+//    tools {
+//        maven "3.6.3" 
+//    }
 
     stages {
 

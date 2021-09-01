@@ -3,6 +3,7 @@ pipeline {
     agent {
         docker {
             image "maven:3.8.2-amazoncorretto-8"
+            
         }
     }
     
@@ -14,6 +15,7 @@ pipeline {
 
         stage("Build") {
             steps {
+                sh "ssh -V"
                 sh "mvn -version"
                 sh "mvn clean install"
             }

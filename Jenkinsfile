@@ -39,7 +39,7 @@ pipeline {
     post {
         always {
             cleanWs()
-            sh "docker system prune -a"
+            input "docker system prune -a"
             echo 'post always message'
         }
     }

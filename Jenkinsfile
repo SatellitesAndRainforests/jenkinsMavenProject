@@ -20,6 +20,8 @@ pipeline {
         stage("Build") {
             steps {
                 sh "docker --version"
+                sh "docker ps -a"
+                sh "docker iamges"
                 sh "mvn -version"
                 sh "mvn clean install"
             }

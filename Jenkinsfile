@@ -28,8 +28,8 @@ pipeline {
         stage("Run") {
             steps {
                 sh "docker run --rm hello_there
-/*                sh 'mvn compile exec:java -Dexec.mainClass="com.example.folder.test"'
-*/            }
+//                sh 'mvn compile exec:java -Dexec.mainClass="com.example.folder.test"'
+            }
         }
 
     }

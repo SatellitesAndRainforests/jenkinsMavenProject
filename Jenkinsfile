@@ -22,9 +22,9 @@ pipeline {
             steps {
 //                sh "node --version"
 //                sh "svn --version"
-                sh "docker --version"
-                sh "docker ps -a"
-                sh "docker images"
+//                sh "docker --version"
+//                sh "docker ps -a"
+//                sh "docker images"
                 sh "mvn -version"
 //               sh "mvn clean install"
             }

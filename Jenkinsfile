@@ -21,7 +21,7 @@ pipeline {
             steps {
                 sh "docker --version"
                 sh "docker ps -a"
-                sh "docker iamges"
+                sh "docker images"
                 sh "mvn -version"
                 sh "mvn clean install"
             }

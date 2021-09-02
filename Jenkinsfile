@@ -23,7 +23,7 @@ pipeline {
                 sh "docker ps -a"
                 sh "docker images"
                 sh "mvn -version"
-                sh "mvn clean install"
+//                sh "mvn clean install"
             }
         }
 

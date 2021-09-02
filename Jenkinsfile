@@ -19,7 +19,7 @@ pipeline {
 
         stage("Build") {
             steps {
-                sh "docker build -t hello_there ."
+                sh "docker --version"
 //                sh "mvn -version"
 //                sh "mvn clean install"
             }
@@ -27,7 +27,6 @@ pipeline {
 
         stage("Run") {
             steps {
-                sh "docker run --rm hello_there
 //                sh 'mvn compile exec:java -Dexec.mainClass="com.example.folder.test"'
             }
         }

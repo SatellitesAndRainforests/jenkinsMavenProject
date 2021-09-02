@@ -1,5 +1,5 @@
 pipeline {
-//    agent any
+    agent any
     
 //    agent { 
 //        docker { 
@@ -11,22 +11,24 @@ pipeline {
 //        maven "3.6.3" 
 //    }
 
-    agent {
-        dockerfile true   
-    }
+//    agent {
+//        dockerfile true   
+//    }
     
     stages {
 
         stage("Build") {
             steps {
-                sh "mvn -version"
-                sh "mvn clean install"
+                sh "docker build -t hello_there ."
+//                sh "mvn -version"
+//                sh "mvn clean install"
             }
         }
 
         stage("Run") {
             steps {
-                sh 'mvn compile exec:java -Dexec.mainClass="com.example.folder.test"'
+                sh "docker run --rm hello_there
+//                sh 'mvn compile exec:java -Dexec.mainClass="com.example.folder.test"'
             }
         }
 

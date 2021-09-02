@@ -20,8 +20,8 @@ pipeline {
 
         stage("Build") {
             steps {
-                sh "node --version"
-                sh "svn --version"
+//                sh "node --version"
+//                sh "svn --version"
                 sh "docker --version"
                 sh "docker ps -a"
                 sh "docker images"

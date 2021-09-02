@@ -1,5 +1,4 @@
 FROM maven:3.8.2-amazoncorretto-8
 
-RUN useradd -m -u 1000 -s /bin/bash jenkins
+RUN /bin/bash -c
 
-RUN yum install -y openssh-clients

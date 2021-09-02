@@ -1,16 +1,13 @@
 pipeline {
 //    agent any
-//    agent { docker { image"maven:3.8.2-amazoncorretto-8" } } 
-    environment {
-        JAVA_TOOL_OPTIONS = "-Duser.home=/home/jenkins"   
-    }
-    agent {
-        dockerfile {
-            label "docker" /////////////////////////////// add label docker to master node <------------
-            args "-v /tmp/maven:/home/jenkins/.m2 -e MAVEN_CONFIG=/home/jenkins/.m2"
-        }
+    
+    agent { 
+        docker { 
+            image "maven:3.8.2-amazoncorretto-8" 
+        } 
     }
     
+  
 //    tools {
 //        maven "3.6.3" 
 //    }

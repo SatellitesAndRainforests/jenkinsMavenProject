@@ -34,7 +34,8 @@ pipeline {
 
     post {
         always {
-            cleanWs()
+            // cleanWs()
+            echo 'post always message'
         }
     }
 

@@ -40,6 +40,7 @@ pipeline {
         stage ("Test") {
             steps {
                 echo 'step test message'   
+                echo 'vim'
             }
             
         }

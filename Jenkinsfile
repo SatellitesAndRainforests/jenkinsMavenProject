@@ -1,5 +1,5 @@
 pipeline {
-    agent any
+//    agent any
     
 //    agent { 
 //        docker { 
@@ -11,19 +11,22 @@ pipeline {
 //        maven "3.6.3" 
 //    }
 
-//    agent {
-//        dockerfile true   
-//    }
+    agent {
+        dockerfile true   
+    }
+    
     
     stages {
 
         stage("Build") {
             steps {
+                sh "node --version"
+                sh "svn --version"
                 sh "docker --version"
                 sh "docker ps -a"
                 sh "docker images"
                 sh "mvn -version"
-//                sh "mvn clean install"
+//               sh "mvn clean install"
             }
         }
 
@@ -34,15 +37,55 @@ pipeline {
             }
         }
 
+        stage ("Test") {
+            steps {
+                echo 'step test message'   
+            }
+            
+        }
+        
+//        stage('Sanity check') {
+//            steps {
+//                input "Does the staging environment look ok?"
+//            }
+//        }
+  
+        stage("Deploy") {
+            steps {
+                echo 'Deploying ... message'     
+            }
+        }
+        
     }
-
-    post {
+    
+    
+//////////////////////////////////////////////////////////////    
+   
+    
+    post {      
         always {
             cleanWs()
-            input "docker system prune -a"
+//          input "docker system prune -a"
             echo 'post always message'
         }
+        success {
+            echo 'post success message'   
+        }
+        unstable {
+            echo 'post unstable message'   
+        }        
+        failure {
+            echo 'post fail message'   
+        }        
+        changed {
+            echo 'post -things were changed message'   
+        }
+         
+        
     }
 
+ ////////////////////////////////////////////////////////////////
 
+    
+    
 }

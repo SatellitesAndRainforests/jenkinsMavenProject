@@ -27,6 +27,7 @@ pipeline {
 
         stage("Run") {
             steps {
+                echo 'step run message'
 //                sh 'mvn compile exec:java -Dexec.mainClass="com.example.folder.test"'
             }
         }
